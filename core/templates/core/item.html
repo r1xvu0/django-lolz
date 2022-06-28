@@ -1,0 +1,105 @@
+{% extends './layout/base.html' %}
+
+{% block content %}
+<h1>Item Details</h1>
+<div class="container w-50">
+
+    <div id="ItemName" class="border rounded w-75">
+        <div class="px-4 py-2 bg-secondary bg-opacity-10 rounded">
+                <b>{{item.name}}</b>
+        </div>
+    {% comment %} </div> {% endcomment %}
+    {% if item.image_url %}
+    <div class="py-2">
+        <img src="{{item.image_url}}">
+    </div>
+    {% endif %}
+    {% comment %} <hr/> {% endcomment %}
+    {% if item.lore %}
+    <div class="bg-secondary bg-opacity-10">
+        <b>Lore</b>
+    </div>
+    <div class="p-4">
+            {{item.lore}}
+    </div>
+    {% endif %}
+
+    {% if item.type %}
+    <div class="bg-secondary bg-opacity-10">
+        <b>Type</b>
+    </div>
+    <div class="p-4">
+            {{item.type}}
+    </div>
+    {% endif %}
+
+    <div class="bg-secondary bg-opacity-10">
+        <b>Stats</b>
+    </div>
+    <div class="pb-4">
+        <br/>
+        <span>
+            +{{item.stat1_value}} {{item.stat1}}
+        </span>
+        <br/>
+        {% if item.stat2_value > 0 %}
+        <span>
+            +{{item.stat2_value}} {{item.stat2}}
+        </span>
+        <br/>
+        {% endif %}
+        {% if item.stat3_value > 0 %}
+        <span>
+            +{{item.stat3_value}} {{item.stat3}}
+        </span>
+        <br/>
+        {% endif %}
+        {% if item.stat4_value > 0 %}
+        <span>
+            +{{item.stat4_value}} {{item.stat4}}
+        </span>
+        {% endif %}
+    </div>
+
+    {% if item.passive_stat %}
+    <div class="bg-secondary bg-opacity-10">
+        <b>Passive</b>
+    </div>
+    <div class="p-4">
+            {% if item.passive_stat_unique == True %}
+                <b>UNIQUE</b> – 
+            {% endif %}
+            {{item.passive_stat_name.upper}}: {{item.passive_stat}}
+        </div>
+    {% endif %}
+    
+    {% if item.active_stat %}
+    <div class="bg-secondary bg-opacity-10">
+        <b>Active</b>
+    </div>
+    <div class="p-4">
+            {% if item.active_stat_unique == True %}
+                <b>UNIQUE</b> – 
+            {% endif %}
+            {{item.active_stat_name.upper}}:
+            {{item.active_stat}}
+        </div>
+        {% endif %}
+    <hr/>
+    <div class="row my-auto p-4">
+        <div class="col-4">
+            Total Cost: <b>{{item.cost}}</b>
+            <img src="https://static.wikia.nocookie.net/leagueoflegends/images/1/10/Gold.png/revision/latest/scale-to-width-down/20?cb=20181122055358">
+        </div>
+        <div class="col-4">
+            Combine Cost: <b>{{item.combine_cost}}</b>
+            <img src="https://static.wikia.nocookie.net/leagueoflegends/images/1/10/Gold.png/revision/latest/scale-to-width-down/20?cb=20181122055358">
+        </div>
+        <div class="col-4">
+            Sell Cost: &nbsp; <b>{{item.sell_cost}}</b>
+            <img src="https://static.wikia.nocookie.net/leagueoflegends/images/1/10/Gold.png/revision/latest/scale-to-width-down/20?cb=20181122055358">
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content %}

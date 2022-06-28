@@ -1,0 +1,33 @@
+{% extends "./layout/base.html" %}
+
+{% block content %}
+    <h1>Index Page</h1>
+    <div class="card w-75" align="center">
+      {% if not user.is_authenticated %}
+        <div class="card-body">
+          <h5 class="card-title">The Realm of Symrancia needs You!</h5>
+          <div class="card-text">
+            <p> Register to enter the wonderful Realm of Symrancia! </p>
+            <p> You will explore dungeons, go on adventures, battle monsters, craft the best equipment, . </p>
+          </div>
+          <div class="row">
+          {% comment %} <form class="col-12" action="about">
+            <button class="btn btn-success" type="submit">Enter</button>
+          </form> {% endcomment %}
+          <form class="col-12" action="signup">
+            <button class="btn btn-primary" type="submit">Register</button>
+          </form>
+        </div>
+        </div>
+        {% else %}
+          <div class="card-body">
+            <h5 class="card-title">Welcome to  LoL-Customs</h5>
+            <div class="card-text">
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Nunc tincidunt ante vitae massa. Fusce tellus. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Et harum quidem rerum facilis est et expedita distinctio. Praesent in mauris eu tortor porttitor accumsan. Duis viverra diam non justo. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Mauris elementum mauris vitae tortor. Praesent vitae arcu tempor neque lacinia pretium. Integer tempor. Nulla non lectus sed nisl molestie malesuada. Aliquam ante. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Pellentesque sapien.</p>
+
+<p>Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat ante, in pharetra metus odio a lectus. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Aenean vel massa quis mauris vehicula lacinia. Aenean id metus id velit ullamcorper pulvinar. Donec vitae arcu. Fusce tellus. Aliquam erat volutpat. Praesent in mauris eu tortor porttitor accumsan. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur vitae diam non enim vestibulum interdum. Donec iaculis gravida nulla. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Aliquam erat volutpat. Sed ac dolor sit amet purus malesuada congue. Duis viverra diam non justo. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Maecenas libero. Nam quis nulla. Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien.</p>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+{% endblock content%}

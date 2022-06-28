@@ -1,0 +1,17 @@
+{% extends './layout/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h1>List</h1>
+
+<form action="{% url 'list_champions' %}">
+    <button class="btn btn-primary" type="Submit" >Champions</button>
+</form>
+
+<form action="{% url 'list_items' %}">
+    <button class="btn btn-secondary" type="Submit" >Items</button>
+</form>
+
+{% endblock %}

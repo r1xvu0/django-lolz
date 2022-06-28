@@ -1,0 +1,250 @@
+{% extends './layout/base.html' %}
+
+{% block content %}
+<h1>{{ champion.name}} - {{ champion.title}}</h1>
+<h2>{{champion.role.capitalize}}</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 border">
+            {{champion.lore|safe}}
+        </div>
+        <div class="col-6">
+    <div class="row border">
+        {% comment %} <div class="col-12">
+            <h2>{{champion.name}}</h2>
+            <h3>{{champion.title}}</h3>
+        </div>
+        <div class="col-12">
+            {{champion.lore}} - Lore
+        </div> {% endcomment %}
+        <div class="col-12">
+            Resource
+            <br/>
+            <h4>{{champion.resource.capitalize}}</h4>
+        </div>
+        <div class="col-6">
+            Base HP
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/1/17/Health_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203537">
+            <br/>
+            {{champion.base_hp}}
+        </div>
+        <div class="col-6">
+            Base MP
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/8/8b/Mana_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203540">
+            <br/>
+            {{champion.base_mp}}
+        </div>
+        <div class="col-6">
+            Base AD
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/7/75/Attack_damage_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203443">
+            <br/>
+            {{champion.base_ad}}
+        </div>
+        <div class="col-6">
+            Base AS
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/9/91/Attack_speed_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203443">
+            <br/>
+            {{champion.base_as}}
+        </div>
+        <div class="col-6">
+            Base AR
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/f/f0/Armor_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203442">
+            <br/>
+            {{champion.base_ar}}
+        </div>
+        <div class="col-6">
+            Base MR
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/8/84/Magic_resistance_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203539">
+            <br/>
+            {{champion.base_mr}}
+        </div>
+        <div class="col-6">
+            Base HP/5
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/3/31/Health_regeneration_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203536">
+            <br/>
+            {{champion.base_hp5}}
+        </div>
+        <div class="col-6">
+            Base MP/5
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/0/0c/Mana_regeneration_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203539">
+            <br/>
+            {{champion.base_mp5}}
+        </div>
+        <div class="col-6">
+            Base MS
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/e/ea/Movement_speed_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203540">
+            <br/>
+            {{champion.base_movement_speed}}
+        </div>
+        <div class="col-6">
+            Base Range
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/1/13/Range_icon.png/revision/latest/scale-to-width-down/32?cb=20170715002053">
+            <br/>
+            {{champion.base_range}}
+        </div>
+        <hr/>
+        <div class="col-6">
+            AD / LVL
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/7/75/Attack_damage_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203443">
+            <br/>
+            {{champion.ad_per_lvl}}
+        </div>
+        <div class="col-6">
+            AS / LVL
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/9/91/Attack_speed_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203443">
+            <br/>
+            {{champion.as_per_lvl}}
+        </div>
+        <div class="col-6">
+            AR / LVL
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/f/f0/Armor_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203442">
+            <br/>
+            {{champion.ar_per_lvl}}
+        </div>
+        <div class="col-6">
+            MR / LVL
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/8/84/Magic_resistance_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203539">
+            <br/>
+            {{champion.mr_per_lvl}}
+        </div>
+        <div class="col-6">
+            HP / LVL
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/1/17/Health_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203537">
+            <br/>
+            {{champion.hp_per_lvl}}
+        </div>
+        <div class="col-6">
+            MP / LVL
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/8/8b/Mana_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203540">
+            <br/>
+            {{champion.mp_per_lvl}}
+        </div>
+        <div class="col-6">
+            HP5 / LVL
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/3/31/Health_regeneration_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203536">
+            <br/>
+            {{champion.hp5_per_lvl}}
+        </div>
+        <div class="col-6">
+            MP5 / LVL
+            <br/>
+            <img class="rounded" src="https://static.wikia.nocookie.net/leagueoflegends/images/0/0c/Mana_regeneration_icon.png/revision/latest/scale-to-width-down/32?cb=20170515203539">
+            <br/>
+            {{champion.mp5_per_lvl}}
+        </div>
+    </div>
+</div>
+<div class="col-6 border">
+    <div class="row my-auto">
+        <div class="col-1 my-auto">
+            <img class="rounded" src="{{champion.skill_passive_icon}}">
+        </div>
+        <div class="col-4 my-auto mx-auto mx-2">
+            {{champion.skill_passive_name}} (P)
+        </div>
+        <div class="col-12 my-auto mt-2">
+            {{champion.skill_passive}}
+        </div>
+    </div>
+<hr/>
+    <div class="row my-auto">
+        <div class="col-1 my-auto">
+            <img class="rounded" src="{{champion.skill_q_icon}}">
+        </div>
+        <div class="col-4 my-auto mx-auto mx-2">
+            {{champion.skill_q_name}} (Q)
+        </div>
+        <div class="col-12 my-auto mx-auto mt-2">
+            {{champion.skill_q}}
+        </div>
+        <div class="col-6 my-auto mt-2">
+            Cooldown: <br/>
+            {{champion.skill_q_cd1}} / {{champion.skill_q_cd2}} / {{champion.skill_q_cd3}} / {{champion.skill_q_cd4}} / {{champion.skill_q_cd5}}
+        </div>
+        <div class="col-6 my-auto mt-2">
+            {{champion.resource.capitalize}} Cost: <br/>
+            {{champion.skill_q_cost1}} / {{champion.skill_q_cost2}} / {{champion.skill_q_cost3}} / {{champion.skill_q_cost4}} / {{champion.skill_q_cost5}}
+        </div>
+    </div>
+<hr/>
+<div class="row my-auto">
+    <div class="col-1 my-auto">
+        <img class="rounded" src="{{champion.skill_w_icon}}">
+    </div>
+    <div class="col-4 my-auto mx-auto">
+        {{champion.skill_w_name}} (W)
+    </div>
+    <div class="col-12 my-auto mx-auto mt-2">
+        {{champion.skill_w}}
+    </div>
+    <div class="col-6 my-auto mx-auto mt-2">
+        Cooldown: <br/>
+        {{champion.skill_w_cd1}} / {{champion.skill_w_cd2}} / {{champion.skill_w_cd3}} / {{champion.skill_w_cd4}} / {{champion.skill_w_cd5}}
+    </div>
+    <div class="col-6 my-auto mt-2">
+        {{champion.resource.capitalize}} Cost: <br/>
+        {{champion.skill_w_cost1}} / {{champion.skill_w_cost2}} / {{champion.skill_w_cost3}} / {{champion.skill_w_cost4}} / {{champion.skill_w_cost5}}
+    </div>
+</div>
+<hr/>
+<div class="row my-auto">
+    <div class="col-1 my-auto">
+        <img class="rounded" src="{{champion.skill_e_icon}}">
+    </div>
+    <div class="col-4 my-auto mx-auto">
+        {{champion.skill_e_name}} (E)
+    </div>
+    <div class="col-12 my-auto mx-auto mt-2">
+        {{champion.skill_e}}
+    </div>
+    <div class="col-6 my-auto mx-auto mt-2">
+        Cooldown: <br/>
+        {{champion.skill_e_cd1}} / {{champion.skill_e_cd2}} / {{champion.skill_e_cd3}} / {{champion.skill_e_cd4}} / {{champion.skill_e_cd5}}
+    </div>
+    <div class="col-6 my-auto mt-2">
+        {{champion.resource.capitalize}} Cost: <br/>
+        {{champion.skill_e_cost1}} / {{champion.skill_e_cost2}} / {{champion.skill_e_cost3}} / {{champion.skill_e_cost4}} / {{champion.skill_e_cost5}}
+    </div>
+</div>
+<hr/>
+<div class="row my-auto">
+    <div class="col-1 my-auto">
+        <img class="rounded" src="{{champion.skill_r_icon}}">
+    </div>
+    <div class="col-4 my-auto mx-auto">
+        {{champion.skill_r_name}} (R)
+    </div>
+    <div class="col-12 my-auto mx-auto mt-2">
+        {{champion.skill_r}}
+    </div>
+    <div class="col-6 my-auto mx-auto mt-2">
+        Cooldown: <br/>
+        {{champion.skill_r_cd1}} / {{champion.skill_r_cd2}} / {{champion.skill_r_cd3}}
+    </div>
+    <div class="col-6 my-auto mt-2">
+        {{champion.resource.capitalize}} Cost: <br/>
+        {{champion.skill_r_cost1}} / {{champion.skill_r_cost2}} / {{champion.skill_r_cost3}}
+    </div>
+</div>
+</div>
+</div>
+</div>
+{% endblock content %}

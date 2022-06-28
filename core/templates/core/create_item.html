@@ -1,0 +1,81 @@
+{% extends './layout/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h1>Create Item</h1>
+<div class="w-50">
+<form action="{% url 'create_item' %}" method="post">
+    {% csrf_token %}
+    <div class="py-2">
+        <span>Item Name*</span>
+        {{ form.name|as_crispy_field }}
+    </div>
+    <span>Image URL</span>
+    {{ form.image_url|as_crispy_field }}
+    <span>Lore</span>
+    {{ form.lore|as_crispy_field }}
+    <span>Cost*</span>
+    {{ form.cost|as_crispy_field }}
+    <span>Combine Cost*</span>
+    {{ form.combine_cost|as_crispy_field }}
+    <span>Sell Cost*</span>
+    {{ form.sell_cost|as_crispy_field }}
+
+    <div class="row my-auto">
+        <div class="col-6">
+            Stat*
+            {{ form.stat1|as_crispy_field }}
+        </div>
+        <div class="col-6">
+            Value*
+            {{ form.stat1_value|as_crispy_field }}
+        </div>
+        <div class="col-6">
+            Stat
+            {{ form.stat2|as_crispy_field }}
+        </div>
+        <div class="col-6">
+            Value
+            {{ form.stat2_value|as_crispy_field }}
+        </div>
+        <div class="col-6">
+            Stat
+            {{ form.stat3|as_crispy_field }}
+        </div>
+        <div class="col-6">
+            Value
+            {{ form.stat3_value|as_crispy_field }}
+        </div>
+        <div class="col-6">
+            Stat
+            {{ form.stat4|as_crispy_field }}
+        </div>
+        <div class="col-6">
+            Value
+            {{ form.stat4_value|as_crispy_field }}
+        </div>
+    </div>
+    <hr/>
+    <span>Active</span><br/>
+    {{ form.active_stat_unique|as_crispy_field:"uni_form" }}
+    <span>Active Name</span>
+    {{form.active_stat_name|as_crispy_field}}
+    <span>Active Description</span>
+    {{ form.active_stat|as_crispy_field }}
+<hr/>
+    <span>Passive</span><br/>
+    {{ form.passive_stat_unique|as_crispy_field:"uni_form" }}
+    <span>Passive Name</span>
+    {{ form.passive_stat_name|as_crispy_field }}
+    <span>Passive Description</span>
+    {{ form.passive_stat|as_crispy_field }}
+
+    <button class="btn btn-success my-2" type="Submit" >Create Item</button>
+</form>
+</div>
+<div>
+
+</div>
+{% endblock content %}

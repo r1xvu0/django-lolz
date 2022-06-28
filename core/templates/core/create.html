@@ -1,0 +1,359 @@
+{% extends './layout/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h1>Create</h1>
+
+<div class="inline-flex">
+    <form action="{% url 'create_champion' %}">
+        <button class="btn btn-primary" type="Submit" >Create Champion</button>
+    </form>
+    <form action="{% url 'create_item' %}">
+        <button class="btn btn-secondary" type="Submit" >Create Item</button>
+    </form>
+</div>
+
+{% comment %} 
+<h1>Create Champion</h1>
+<div class="w-50">
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        <div class="py-2">
+            <span>Champion Name</span>
+            {{form.name|as_crispy_field}}
+        </div>
+        <span>Title</span>
+        {{form.title|as_crispy_field}}
+        <span>Role</span>
+        {{form.role|as_crispy_field}}
+        <span>Lore</span>
+        {{form.lore|as_crispy_field}}
+        <span>Resource Type</span>
+        {{form.resource|as_crispy_field}}
+        <div class="row my-auto">
+            <div class="col-6">
+                <span>Base HP</span>
+                {{form.base_hp|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>HP per LVL</span>
+                {{form.hp_per_lvl|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>Base HP/5</span>
+                {{form.base_hp5|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>HP/5 per LVL</span>
+                {{form.hp5_per_lvl|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>Base MP</span>
+                {{form.base_mp|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>MP per LVL</span>
+                {{form.mp_per_lvl|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>Base MP/5</span>
+                {{form.base_mp5|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>MP/5 per LVL</span>
+                {{form.mp5_per_lvl|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>Base AD</span>
+                {{form.base_ad|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>AD per LVL</span>
+                {{form.ad_per_lvl|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>Base Attack Speed</span>
+                {{form.base_as|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>Attack Speed per LVL</span>
+                {{form.as_per_lvl|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>Base Armor</span>
+                {{form.base_ar|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>Armor per LVL</span>
+                {{form.ar_per_lvl|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>Base M.Resist</span>
+                {{form.base_mr|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>M.Resist per LVL</span>
+                {{form.mr_per_lvl|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>Movement Speed</span>
+                {{form.base_movement_speed|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                <span>Attack Range</span>
+                {{form.base_range|as_crispy_field}}
+            </div>
+            <div class="col-12">
+            <hr/>
+            </div>
+            <div class="col-12">
+                <span>Passive (P)</span>
+                <div class="col-12">
+                    <span>Name</span>
+                    {{form.skill_passive_name|as_crispy_field}}
+                </div>
+                <div class="col-12">
+                    <span>Description</span>
+                    {{form.skill_passive|as_crispy_field}}
+                </div>
+            </div>
+            <div class="col-12 my-4">
+                <span>Q</span>
+                <div class="row my-auto mb-2">
+                    <div class="col-12">
+                        <span>Name</span>
+                        {{form.skill_q_name|as_crispy_field}}
+                    </div>
+                    <div class="col-12">
+                        <span>Cooldown</span>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-2">
+                        LVL 1
+                        {{form.skill_q_cd1|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 2
+                        {{form.skill_q_cd2|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 3
+                        {{form.skill_q_cd3|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 4
+                        {{form.skill_q_cd4|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 5
+                        {{form.skill_q_cd5|as_crispy_field}}
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-12 mt-2">
+                        <span>Resource Cost</span>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-2">
+                        LVL 1
+                        {{form.skill_q_cost1|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 2
+                        {{form.skill_q_cost2|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 3
+                        {{form.skill_q_cost3|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 4
+                        {{form.skill_q_cost4|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 5
+                        {{form.skill_q_cost5|as_crispy_field}}
+                    </div>
+                    <div class="col-1"></div>
+                    
+                </div>
+                Skill Description
+                {{form.skill_q|as_crispy_field}}
+            </div>
+                <div class="col-12 my-4">
+                    <span>W</span>
+                    <div class="row my-auto mb-2">
+                        <div class="col-12">
+                            <span>Name</span>
+                            {{form.skill_w_name|as_crispy_field}}
+                        </div>
+                        <div class="col-12">
+                            <span>Cooldown</span>
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col-2">
+                            LVL 1
+                            {{form.skill_w_cd1|as_crispy_field}}
+                        </div>
+                        <div class="col-2">
+                            LVL 2
+                            {{form.skill_w_cd2|as_crispy_field}}
+                        </div>
+                        <div class="col-2">
+                            LVL 3
+                            {{form.skill_w_cd3|as_crispy_field}}
+                        </div>
+                        <div class="col-2">
+                            LVL 4
+                            {{form.skill_w_cd4|as_crispy_field}}
+                        </div>
+                        <div class="col-2">
+                            LVL 5
+                            {{form.skill_w_cd5|as_crispy_field}}
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col-12 mt-2">
+                            <span>Resource Cost</span>
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col-2">
+                            LVL 1
+                            {{form.skill_w_cost1|as_crispy_field}}
+                        </div>
+                        <div class="col-2">
+                            LVL 2
+                            {{form.skill_w_cost2|as_crispy_field}}
+                        </div>
+                        <div class="col-2">
+                            LVL 3
+                            {{form.skill_w_cost3|as_crispy_field}}
+                        </div>
+                        <div class="col-2">
+                            LVL 4
+                            {{form.skill_w_cost4|as_crispy_field}}
+                        </div>
+                        <div class="col-2">
+                            LVL 5
+                            {{form.skill_w_cost5|as_crispy_field}}
+                        </div>
+                        <div class="col-1"></div>
+                        
+                    </div>
+                    Skill Description
+                    {{form.skill_w|as_crispy_field}}
+                </div>
+
+            <div class="col-12 my-4">
+                <span>E</span>
+                <div class="row my-auto mb-2">
+                    <div class="col-12">
+                        <span>Name</span>
+                        {{form.skill_e_name|as_crispy_field}}
+                    </div>
+                    <div class="col-12">
+                        <span>Cooldown</span>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-2">
+                        LVL 1
+                        {{form.skill_e_cd1|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 2
+                        {{form.skill_e_cd2|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 3
+                        {{form.skill_e_cd3|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 4
+                        {{form.skill_e_cd4|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 5
+                        {{form.skill_e_cd5|as_crispy_field}}
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-12 mt-2">
+                        <span>Resource Cost</span>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-2">
+                        LVL 1
+                        {{form.skill_e_cost1|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 2
+                        {{form.skill_e_cost2|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 3
+                        {{form.skill_e_cost3|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 4
+                        {{form.skill_e_cost4|as_crispy_field}}
+                    </div>
+                    <div class="col-2">
+                        LVL 5
+                        {{form.skill_e_cost5|as_crispy_field}}
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+                Skill Description
+                {{form.skill_e|as_crispy_field}}
+            </div>
+            <div class="col-12 my-4">
+                <span>R</span>
+                <div class="row my-auto mb-2">
+                    <div class="col-12">
+                        <span>Name</span>
+                        {{form.skill_r_name|as_crispy_field}}
+                    </div>
+                    <div class="col-12">
+                        <span>Cooldown</span>
+                    </div>
+
+                    <div class="col-4">
+                        LVL 1
+                        {{form.skill_r_cd1|as_crispy_field}}
+                    </div>
+                    <div class="col-4">
+                        LVL 2
+                        {{form.skill_r_cd2|as_crispy_field}}
+                    </div>
+                    <div class="col-4">
+                        LVL 3
+                        {{form.skill_r_cd3|as_crispy_field}}
+                    </div>
+                    <div class="col-12 mt-2">
+                        <span>Resource Cost</span>
+                    </div>
+
+                    <div class="col-4">
+                        LVL 1
+                        {{form.skill_r_cost1|as_crispy_field}}
+                    </div>
+                    <div class="col-4">
+                        LVL 2
+                        {{form.skill_r_cost2|as_crispy_field}}
+                    </div>
+                    <div class="col-4">
+                        LVL 3
+                        {{form.skill_r_cost3|as_crispy_field}}
+                    </div>
+
+                </div>
+                Skill Description
+                {{form.skill_r|as_crispy_field}}
+            </div>
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <button type="submit">Hey</button>
+            <input type="submit" value="Submit">
+    </form>
+</div> {% endcomment %}
+
+
+{% endblock %}
